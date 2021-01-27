@@ -1,5 +1,3 @@
-let intro = 'My name is Khan';
-
 function reverseString1(str) {
     const reversedString = [];
     const strLength = str.length - 1;
@@ -14,13 +12,6 @@ function reverseString2(str) {
 }
 
 const reverseString3 = str => [...str].reverse().join('');
-
-console.log(reverseString1(intro));
-console.log(reverseString2(intro));
-console.log(reverseString3(intro));
-
-let arr1 = [0, 3, 4, 31];
-let arr2 = [4, 6, 30];
 
 function mergeSortedArray1(array1, array2) {
     const mergedArray = [...array1, ...array2];
@@ -53,5 +44,24 @@ function mergeSortedArray2(array1, array2) {
     return mergedArray;
 }
 
-console.log(mergeSortedArray1(arr1, arr2));
-console.log(mergeSortedArray2(arr1, arr2));
+function twoSum1(array, target) {
+    for (let i = 0; i < array.length - 1; i++) {
+        for (let j = 1; j < array.length; j++) {
+            if ((array[i] + array[j]) == target)
+                return [i, j];
+        }
+    }
+}
+
+function twoSum2(array, target) {
+    const map = new Map();
+    for (let i = 0; i < array.length; i++) {
+        let complement = target - array[i];
+        if (map.has(complement)) {
+            return [map.get(complement), i];
+        } else {
+            map.set(array[i], i);
+        }
+
+    }
+}
