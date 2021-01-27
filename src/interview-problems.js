@@ -114,3 +114,19 @@ function moveZeros2(array) {
 }
 /* region end
 move all zeros in array to end  */
+
+/* region start
+return true if array contains duplicates  */
+function containsDuplicate(array) {
+    let map = new Map();
+    for (let i = 0; i < array.length; i++) {
+        if (map.has(array[i])) {
+            return true
+        } else {
+            map.set(array[i], i)
+        }
+    }
+    return false;
+}
+/* region end
+return true if array contains duplicates  */
