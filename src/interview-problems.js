@@ -1,3 +1,5 @@
+/* region start
+return reversed string */
 function reverseString1(str) {
     const reversedString = [];
     const strLength = str.length - 1;
@@ -12,7 +14,11 @@ function reverseString2(str) {
 }
 
 const reverseString3 = str => [...str].reverse().join('');
+/* region ends
+ for reverse string */
 
+/* region start
+for merge sorted array */
 function mergeSortedArray1(array1, array2) {
     const mergedArray = [...array1, ...array2];
     for (let i = 0; i < mergedArray.length; i++) {
@@ -43,7 +49,11 @@ function mergeSortedArray2(array1, array2) {
     }
     return mergedArray;
 }
+/* region end
+for merge sorted array */
 
+/* region start
+return indices sum of two number  */
 function twoSum1(array, target) {
     for (let i = 0; i < array.length - 1; i++) {
         for (let j = 1; j < array.length; j++) {
@@ -65,3 +75,42 @@ function twoSum2(array, target) {
 
     }
 }
+/* region end
+return indices sum of two number  */
+
+/* region start
+move all zeros in array to end  */
+function moveZeros1(array) {
+    const tempArray = [];
+    let zerosCount = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] == 0) {
+            zerosCount++
+        }
+    }
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] != 0) {
+            tempArray.push(array[i]);
+        }
+    }
+    while (zerosCount--) {
+        tempArray.push(0);
+    }
+    array = tempArray;
+    return array;
+}
+
+function moveZeros2(array) {
+    let lastNonZeroFoundAt = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] != 0) {
+            array[lastNonZeroFoundAt++] = array[i];
+        }
+    }
+    for (let i = lastNonZeroFoundAt; i < array.length; i++) {
+        array[i] = 0;
+    }
+    return array;
+}
+/* region end
+move all zeros in array to end  */
