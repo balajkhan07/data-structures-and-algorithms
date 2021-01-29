@@ -130,3 +130,33 @@ function containsDuplicate(array) {
 }
 /* region end
 return true if array contains duplicates  */
+
+/* region start
+return first reccuring number in an array  */
+function firstReccuringNumber(array) {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 1 + i; j < array.length; j++) {
+            if (array[i] == array[j]) {
+                return array[i];
+            }
+        }
+    }
+    return undefined;
+}
+
+function firstReccuringNumber2(array) {
+    let map = new Map();
+    for (let i = 0; i < array.length; i++) {
+        if (map.has(array[i])) {
+            return array[i];
+        } else {
+            map.set(array[i], i);
+        }
+    }
+    return undefined;
+}
+/* region end
+return first reccuring number in an array  */
+
+
+console.log(firstReccuringNumber2([0, 3, 5, 6, 2, 3, 4]));
