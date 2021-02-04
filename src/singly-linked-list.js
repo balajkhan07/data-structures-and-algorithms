@@ -7,7 +7,7 @@ class Node {
 
 }
 
-class LinkedList {
+class SinglyLinkedList {
 
     constructor(value) {
         this.head = new Node(value);
@@ -33,35 +33,35 @@ class LinkedList {
         if(index >= this.length) {
             return this.append(value);
         }
-        let count = 1;
-        let current = this.head;
-        while (index != count) {
-            current = current.next;
-            count++;
+        let currentIndex = 1;
+        let currentNode = this.head;
+        while (index != currentIndex) {
+            currentNode = currentNode.next;
+            currentIndex++;
         }
         const newNode = new Node(value);
-        newNode.next = current.next;
-        current.next = newNode;
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
         this.length++;
     }
 
     remove(index) {
-        let count = 1;
-        let current = this.head;
-        while(index != count) {
-            current = current.next;
-            count++;
+        let currentIndex = 1;
+        let currentNode = this.head;
+        while(index != currentIndex) {
+            currentNode = currentNode.next;
+            currentIndex++;
         }
-        current.next = current.next.next;
+        currentNode.next = currentNode.next.next;
         this.length--;
     }
 
     traverseList() {
         const list = [];
-        let current = this.head;
-        while (current) {
-            list.push(current.value);
-            current = current.next;
+        let currentNode = this.head;
+        while (currentNode) {
+            list.push(currentNode.value);
+            currentNode = currentNode.next;
         }
         return list;
     }
