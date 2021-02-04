@@ -30,7 +30,7 @@ class SinglyLinkedList {
     }
 
     insert(index, value) {
-        if(index >= this.length) {
+        if (index >= this.length) {
             return this.append(value);
         }
         let currentIndex = 1;
@@ -46,9 +46,14 @@ class SinglyLinkedList {
     }
 
     remove(index) {
+        if (index == 0) {
+            this.head = this.head.next;
+            this.length--;
+            return
+        }
         let currentIndex = 1;
         let currentNode = this.head;
-        while(index != currentIndex) {
+        while (index != currentIndex) {
             currentNode = currentNode.next;
             currentIndex++;
         }
