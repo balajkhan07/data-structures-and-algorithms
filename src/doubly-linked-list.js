@@ -32,19 +32,8 @@ class DoublyLinkedList {
         this.length++;
     }
 
-    remove(index) {
-        let currentIndex = 1;
-        let currentNode = this.head;
-        while (index != currentIndex) {
-            currentNode = currentNode.next;
-            currentIndex++;
-        }
-        currentNode.next = currentNode.next.next;
-        this.length--;
-    }
-
     insert(index, value) {
-        if (index >= this.length) {
+        if (index >= this.length - 1) {
             return this.append(value);
         }
         if (index == 0) {
@@ -64,6 +53,32 @@ class DoublyLinkedList {
         leaderNode.next = newNode;
         followerNode.prev = newNode;
         this.length++;
+    }
+
+    remove(index) {
+        if (index >= this.length - 1) {
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+            this.length--;
+            return
+        }
+        if (index == 0) {
+            this.head = this.head.next;
+            this.head.prev = null;
+            this.length--;
+            return
+        }
+        let currentIndex = 1;
+        let currentNode = this.head;
+        while (index != currentIndex) {
+            currentNode = currentNode.next;
+            currentIndex++;
+        }
+        const leaderNode = currentNode;
+        const followerNode = currentNode.next;
+        leaderNode.next = followerNode.next;
+        followerNode.next.prev = leaderNode;
+        this.length--;
     }
 
     traverseHead() {
@@ -87,10 +102,3 @@ class DoublyLinkedList {
     }
 
 }
-
-const doublyLinkedList = new DoublyLinkedList(10);
-doublyLinkedList.append(5);
-doublyLinkedList.append(51);
-doublyLinkedList.insert(1, 19);
-console.log(doublyLinkedList.traverseHead());
-console.log(doublyLinkedList.traverseTail());

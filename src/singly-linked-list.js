@@ -30,8 +30,11 @@ class SinglyLinkedList {
     }
 
     insert(index, value) {
-        if (index >= this.length) {
+        if (index >= this.length - 1) {
             return this.append(value);
+        }
+        if (index == 0) {
+            return this.prepend(value);
         }
         let currentIndex = 1;
         let currentNode = this.head;
