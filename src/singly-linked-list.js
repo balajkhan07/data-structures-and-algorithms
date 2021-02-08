@@ -74,4 +74,24 @@ class SinglyLinkedList {
         return list;
     }
 
+    reverseList() {
+        let prev = null;
+        let currentNode = this.head;
+        let nextNode;
+        while(currentNode) {
+            nextNode = currentNode.next;
+            currentNode.next = prev;
+            prev = currentNode;
+            currentNode = nextNode;
+        }
+        this.head = prev;
+    }
+
 }
+
+const linkedList = new SinglyLinkedList(10);
+linkedList.append(20);
+linkedList.append(30);
+linkedList.append(40);
+linkedList.reverseList();
+console.log(linkedList.traverseList());
