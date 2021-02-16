@@ -88,10 +88,3 @@ class SinglyLinkedList {
     }
 
 }
-
-const linkedList = new SinglyLinkedList(10);
-linkedList.append(20);
-linkedList.append(30);
-linkedList.append(40);
-linkedList.reverseList();
-console.log(linkedList.traverseList());
