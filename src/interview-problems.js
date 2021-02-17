@@ -157,6 +157,3 @@ function firstReccuringNumber2(array) {
 }
 /* region end
 return first reccuring number in an array  */
-
-
-console.log(firstReccuringNumber2([0, 3, 5, 6, 2, 3, 4]));
